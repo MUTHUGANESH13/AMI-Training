@@ -1,0 +1,20 @@
+Parent writing 0
+Child writing 0
+Parent writing 1
+Child writing 1
+Parent writing 2
+Child writing 2
+Parent writing 3
+Child writing 3
+Parent writing 4
+Child writing 4
+Parent process writing 0
+Child process writing 0
+Parent process writing 1
+Child process writing 1
+Parent process writing 2
+Child process writing 2
+Parent process writing 3
+Child process writing 3
+Parent process writing 4
+Child process writing 4
