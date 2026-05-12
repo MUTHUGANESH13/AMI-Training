@@ -1,0 +1,10 @@
+Parent process 2092 writing line 0
+Child process 2093 writing line 0
+Child process 2093 writing line 1
+Parent process 2092 writing line 1
+Child process 2093 writing line 2
+Parent process 2092 writing line 2
+Child process 2093 writing line 3
+Parent process 2092 writing line 3
+Child process 2093 writing line 4
+Parent process 2092 writing line 4

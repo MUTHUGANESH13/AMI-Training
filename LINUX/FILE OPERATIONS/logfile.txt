@@ -1,0 +1,10 @@
+Parent PID 1915: log entry at 1773678226
+Child PID 1916: log entry at 1773678226
+Parent PID 1915: log entry at 1773678227
+Child PID 1916: log entry at 1773678227
+Parent PID 1915: log entry at 1773678228
+Child PID 1916: log entry at 1773678228
+Parent PID 1915: log entry at 1773678229
+Child PID 1916: log entry at 1773678229
+Parent PID 1915: log entry at 1773678230
+Child PID 1916: log entry at 1773678230

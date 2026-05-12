@@ -1,0 +1,73 @@
+/*
+Program to implement race condition
+Author   : MUTHUGANESH S
+Date     : 05/02/2026
+Filename : race.c
+*/
+
+//Header files
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <string.h>
+
+//Functions to lock and unlock the file
+void lock_file(int fd)
+{
+    struct flock lock;
+
+    lock.l_type = F_WRLCK;
+    lock.l_whence = SEEK_SET;
+    lock.l_start = 0;
+    lock.l_len = 0;
+
+    fcntl(fd, F_SETLKW, &lock);
+}
+
+void unlock_file(int fd)
+{
+    struct flock lock;
+
+    lock.l_type = F_UNLCK;
+    lock.l_whence = SEEK_SET;
+    lock.l_start = 0;
+    lock.l_len = 0;
+
+    fcntl(fd, F_SETLK, &lock);
+}
+
+int main()
+{
+    int fd;
+    pid_t pid;
+    char buffer[100];
+
+    fd = open("race.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
+
+    if(fd < 0)
+    {
+        perror("open");
+        exit(1);
+    }
+
+    pid = fork();
+
+    for(int i=0;i<5;i++)
+    {
+        lock_file(fd);
+
+        if(pid==0)
+            sprintf(buffer,"Child writing %d\n",i);
+        else
+            sprintf(buffer,"Parent writing %d\n",i);
+
+        write(fd,buffer,strlen(buffer));
+
+        unlock_file(fd);
+
+        sleep(1);
+    }
+
+    close(fd);
+}
